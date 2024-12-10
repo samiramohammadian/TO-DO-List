@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #1E1E2E; /* Dark background */
+            color: #E5E5E5; /* Light text color */
+            text-align: center;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #2E2F3E;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #2E2F3E;
+            color: #E5E5E5;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #357ABD;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit Task</h1>
+    <div class="form-container">
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="task_id" value="{{ task_id }}">
+            {{ form.as_p }}
+            <button type="submit" name="update_task">Update Task</button>
+        </form>
+        <br>
+        <a href="/" style="text-decoration: none; color: #4A90E2;">Cancel</a>
+    </div>
+</body>
+</html>
